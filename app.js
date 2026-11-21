@@ -1,6 +1,6 @@
 
 const API_BASE_URL =
-  "https://thats-battle-betty-venues.trycloudflare.com";
+    "https://unto-connections-neural-wool.trycloudflare.com";
 
 async function registrarEvento(tipo, alias) {
     const respuesta = await fetch(
