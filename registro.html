@@ -3,8 +3,8 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Facebook</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Facebook - Registro | Simulación académica</title>
 
 <style>
 * {
@@ -13,102 +13,131 @@
 
 body {
     margin: 0;
-    background: #f0f2f5;
     font-family: Helvetica, Arial, sans-serif;
+    background: #f0f2f5;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
 .aviso {
-    text-align: center;
-    padding: 14px;
     background: #fff3cd;
+    border-bottom: 1px solid #ffda6a;
+    padding: 13px 18px;
+    text-align: center;
     color: #664d03;
     font-size: 14px;
-    border-bottom: 1px solid #ffda6a;
+    font-weight: bold;
 }
 
 .principal {
     flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    padding: 35px 15px;
+    align-items: center;
+    padding: 30px 15px;
 }
 
 .logo {
     color: #0866ff;
-    font-size: 55px;
+    font-size: 52px;
     font-weight: bold;
     text-decoration: none;
     letter-spacing: -2px;
+    margin-bottom: 10px;
+}
+
+.subtitulo {
+    font-size: 13px;
+    color: #606770;
     margin-bottom: 20px;
+    font-weight: bold;
 }
 
 .tarjeta {
     width: 432px;
     max-width: 100%;
     background: white;
-    border-radius: 9px;
-    box-shadow: 0 3px 15px #00000020;
+    border-radius: 8px;
+    box-shadow: 0 3px 15px #0002;
     overflow: hidden;
 }
 
 .encabezado {
+    padding: 15px;
     text-align: center;
-    padding: 18px;
-    border-bottom: 1px solid #dadde1;
+    border-bottom: 1px solid #dddfe2;
 }
 
 .encabezado h2 {
-    font-size: 25px;
     margin: 0;
+    font-size: 25px;
 }
 
 .encabezado p {
-    font-size: 15px;
     color: #606770;
-    margin: 8px 0 0;
+    font-size: 15px;
+    margin-bottom: 0;
 }
 
-.contenido {
-    padding: 18px;
+.formulario {
+    padding: 16px;
+}
+
+.fila {
+    display: flex;
+    gap: 10px;
 }
 
 .campo {
     width: 100%;
-    padding: 13px;
-    font-size: 15px;
-    background: #f5f6f7;
+    padding: 12px;
+    margin-bottom: 12px;
     border: 1px solid #ccd0d5;
     border-radius: 5px;
-    margin-bottom: 13px;
+    background: #f5f6f7;
+    font-size: 15px;
+    min-width: 0;
 }
 
 .campo:focus {
-    outline: none;
     background: white;
     border-color: #0866ff;
+    outline: none;
 }
 
 .etiqueta {
+    display: block;
+    margin: 6px 0;
     font-size: 13px;
     color: #606770;
-    display: block;
-    margin: 5px 0 8px;
 }
 
-.informacion {
-    color: #65676b;
+.opciones {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.opcion {
+    flex: 1;
+    padding: 10px;
+    background: white;
+    border: 1px solid #ccd0d5;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.nota {
     font-size: 12px;
+    color: #606770;
     line-height: 1.5;
-    margin: 10px 0 20px;
 }
 
 .acciones {
     text-align: center;
+    margin-top: 20px;
 }
 
 .boton {
@@ -116,60 +145,53 @@ body {
     color: white;
     border: none;
     border-radius: 6px;
-    padding: 12px 28px;
+    padding: 12px 35px;
     font-size: 18px;
     font-weight: bold;
     cursor: pointer;
-    min-width: 210px;
 }
 
 .boton:hover {
-    background: #36a420;
+    background: #008e00;
 }
 
 .boton:disabled {
-    opacity: .65;
+    opacity: .6;
     cursor: wait;
 }
 
 .volver {
     display: block;
-    margin-top: 22px;
+    text-align: center;
+    margin-top: 18px;
     color: #1877f2;
-    font-size: 16px;
     text-decoration: none;
+    font-size: 15px;
 }
 
 #resultado {
     text-align: center;
     font-size: 14px;
-    margin-top: 15px;
+    margin-top: 12px;
     overflow-wrap: anywhere;
 }
 
-.exito {
-    color: #17803d;
-}
-
-.error {
-    color: #c62828;
-}
-
 footer {
-    padding: 24px;
-    text-align: center;
-    color: #737373;
     background: white;
+    padding: 20px;
+    text-align: center;
     font-size: 12px;
+    color: #737373;
 }
 
 @media(max-width: 460px) {
-    .logo {
-        font-size: 43px;
+    .fila {
+        flex-direction: column;
+        gap: 0;
     }
 
-    .tarjeta {
-        width: 100%;
+    .opciones {
+        flex-wrap: wrap;
     }
 }
 </style>
@@ -178,118 +200,226 @@ footer {
 <body>
 
 <div class="aviso">
-    SIMULACIÓN EDUCATIVA —
-    No utilices información personal ni contraseñas reales.
+    SIMULACIÓN ACADÉMICA DE FACEBOOK —
+    Sitio independiente, no oficial.
+    No utilices datos personales reales.
 </div>
 
 <main class="principal">
 
-    <a href="./index.html" class="logo">
-        Facebook
-    </a>
+<a href="index.html" class="logo">
+    Facebook
+</a>
 
-    <section class="tarjeta">
+<p class="subtitulo">
+    ENTORNO EDUCATIVO DE DEMOSTRACIÓN
+</p>
 
-        <header class="encabezado">
-            <h2>Crea una cuenta de prueba</h2>
-            <p>Es rápido y fácil.</p>
-        </header>
+<section class="tarjeta">
 
-        <div class="contenido">
+    <header class="encabezado">
+        <h2>Crea una cuenta nueva</h2>
+        <p>Es rápido y fácil.</p>
+    </header>
 
-            <form id="registroDemoForm">
+    <form id="registroForm" class="formulario">
 
-                <label
-                    for="aliasRegistro"
-                    class="etiqueta"
-                >
-                    Alias ficticio
-                </label>
+        <div class="fila">
+            <input
+                class="campo"
+                id="nombre"
+                placeholder="Nombre ficticio"
+                maxlength="40"
+                required
+            >
 
+            <input
+                class="campo"
+                id="apellido"
+                placeholder="Apellido ficticio"
+                maxlength="40"
+                required
+            >
+        </div>
+
+        <input
+            class="campo"
+            type="email"
+            id="correo"
+            placeholder="demo_alumno@example.test"
+            autocomplete="off"
+            required
+        >
+
+        <input
+            class="campo"
+            type="password"
+            id="password"
+            placeholder="Contraseña ficticia: DEMO_1234"
+            autocomplete="new-password"
+            required
+        >
+
+        <input
+            class="campo"
+            type="password"
+            id="confirmacion"
+            placeholder="Confirmar contraseña"
+            autocomplete="new-password"
+            required
+        >
+
+        <label class="etiqueta" for="nacimiento">
+            Fecha de nacimiento
+        </label>
+
+        <input
+            class="campo"
+            type="date"
+            id="nacimiento"
+            required
+        >
+
+        <label class="etiqueta">
+            Género
+        </label>
+
+        <div class="opciones">
+            <label class="opcion">
                 <input
-                    id="aliasRegistro"
-                    class="campo"
-                    type="text"
-                    value="demo_alumno02"
-                    placeholder="demo_alumno02"
-                    pattern="demo_[A-Za-z0-9_]{1,35}"
-                    maxlength="40"
-                    autocomplete="off"
+                    type="radio"
+                    name="genero"
+                    value="Mujer"
                     required
                 >
+                Mujer
+            </label>
 
-                <p class="informacion">
-                   --
-                </p>
+            <label class="opcion">
+                <input
+                    type="radio"
+                    name="genero"
+                    value="Hombre"
+                >
+                Hombre
+            </label>
 
-                <div class="acciones">
+            <label class="opcion">
+                <input
+                    type="radio"
+                    name="genero"
+                    value="Otro"
+                >
+                Otro
+            </label>
+        </div>
 
-                    <button
-                        type="submit"
-                        class="boton"
-                    >
-                        Simular registro
-                    </button>
+        <p class="nota">
+            Este formulario pertenece a una simulación
+            académica, no a Facebook oficial.
+            Solo se permiten cuentas de prueba,
+            correos @example.test y contraseñas DEMO_.
+        </p>
 
-                    <p id="resultado" role="status"></p>
+        <p class="nota">
+            En el laboratorio las claves ficticias se
+            almacenan deliberadamente sin hash
+            para demostrar los riesgos de seguridad.
+            Nunca introduzcas una contraseña real.
+        </p>
 
-                    <a
-                        class="volver"
-                        href="./index.html"
-                    >
-                        ¿Ya tienes una cuenta de prueba?
-                    </a>
+        <div class="acciones">
 
-                </div>
+            <button class="boton" type="submit">
+                Registrarte
+            </button>
 
-            </form>
+            <p id="resultado" role="status"></p>
 
         </div>
 
-    </section>
+        <a href="index.html" class="volver">
+            ¿Ya tienes una cuenta?
+        </a>
+
+    </form>
+
+</section>
 
 </main>
 
 <footer>
-    Proyecto académico de ciberseguridad · 2026
+    <strong>Facebook — Simulación académica</strong>
+    <p>No afiliado al servicio oficial de Facebook.</p>
+    <p>Proyecto educativo con Flask y SQLite.</p>
 </footer>
 
 <script src="./app.js"></script>
 
 <script>
-document.getElementById("registroDemoForm")
-.addEventListener("submit", async function(evento) {
+document.getElementById("registroForm")
+.addEventListener("submit", async function(e) {
 
-    evento.preventDefault();
+    e.preventDefault();
 
-    const alias =
-        document.getElementById("aliasRegistro").value.trim();
+    const nombre =
+        document.getElementById("nombre").value.trim();
+
+    const apellido =
+        document.getElementById("apellido").value.trim();
+
+    const correo =
+        document.getElementById("correo").value.trim();
+
+    const password =
+        document.getElementById("password").value;
+
+    const confirmacion =
+        document.getElementById("confirmacion").value;
+
+    const nacimiento =
+        document.getElementById("nacimiento").value;
+
+    const genero =
+        document.querySelector(
+            'input[name="genero"]:checked'
+        )?.value;
 
     const resultado =
         document.getElementById("resultado");
 
     const boton =
-        this.querySelector("button[type='submit']");
+        this.querySelector("button[type=submit]");
+
+    if (password !== confirmacion) {
+        resultado.style.color = "red";
+        resultado.textContent =
+            "Las contraseñas ficticias no coinciden.";
+        return;
+    }
 
     boton.disabled = true;
-    resultado.className = "";
-    resultado.textContent = "Registrando evento ficticio...";
+    resultado.style.color = "#606770";
+    resultado.textContent = "Registrando cuenta ficticia...";
 
     try {
-        const datos = await registrarEvento(
-            "registro_demo",
-            alias
-        );
+        const datos = await enviarAPI("/api/registro", {
+            nombre,
+            apellido,
+            correo,
+            password,
+            nacimiento,
+            genero
+        });
 
-        resultado.className = "exito";
+        resultado.style.color = "green";
         resultado.textContent =
-            "Registro ficticio guardado correctamente. ID: " +
-            datos.id;
+            "Cuenta de prueba creada. ID: " + datos.id +
+            ". Ahora puedes iniciar sesión.";
 
     } catch (error) {
-        resultado.className = "error";
-        resultado.textContent =
-            "Error de conexión: " + error.message;
+        resultado.style.color = "red";
+        resultado.textContent = error.message;
     } finally {
         boton.disabled = false;
     }
