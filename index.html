@@ -1,455 +1,326 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Red Social - Inicia sesión o regístrate</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Red Social | Simulación educativa</title>
 
-        body {
-            font-family: Helvetica, Arial, sans-serif;
-            background-color: #f0f2f5;
-            color: #1c1e21;
-            line-height: 1.34;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
+<style>
+* {
+    box-sizing: border-box;
+}
 
-        .main-wrapper {
-            background-color: #f0f2f5;
-            padding-top: 72px;
-            padding-bottom: 112px;
-            flex: 1;
-            display: flex;
-            align-items: center;
-        }
+body {
+    margin: 0;
+    font-family: Helvetica, Arial, sans-serif;
+    background: #f0f2f5;
+    color: #1c1e21;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
 
-        .content-container {
-            max-width: 980px;
-            width: 100%;
-            margin: 0 auto;
-            padding: 20px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
+.aviso {
+    background: #fff3cd;
+    color: #664d03;
+    padding: 13px 20px;
+    text-align: center;
+    font-size: 14px;
+    border-bottom: 1px solid #ffda6a;
+}
 
-        /* Columna Izquierda */
-        .left-column {
-            width: 580px;
-            padding-right: 32px;
-            padding-top: 40px;
-        }
+.principal {
+    flex: 1;
+    width: 100%;
+    max-width: 1050px;
+    margin: auto;
+    padding: 60px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 45px;
+}
 
-        .brand-title {
-            color: #0866ff;
-            font-size: 60px;
-            font-weight: 700;
-            letter-spacing: -2px;
-            line-height: 1;
-            margin-bottom: 16px;
-            user-select: none;
-        }
+.presentacion {
+    flex: 1;
+    max-width: 550px;
+}
 
-        .brand-subtitle {
-            font-size: 28px;
-            font-weight: normal;
-            line-height: 32px;
-            color: #1c1e21;
-            width: 500px;
-        }
+.logo {
+    color: #0866ff;
+    font-size: 62px;
+    font-weight: bold;
+    letter-spacing: -2px;
+    margin: 0 0 15px;
+}
 
-        /* Columna Derecha */
-        .right-column {
-            width: 396px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+.subtitulo {
+    font-size: 27px;
+    line-height: 1.3;
+    margin: 0;
+}
 
-        .auth-card {
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
-            padding: 16px 16px 24px 16px;
-            width: 396px;
-            text-align: center;
-        }
+.contenedor {
+    width: 396px;
+    max-width: 100%;
+}
 
-        .status-banner {
-            padding: 10px 12px;
-            border-radius: 6px;
-            font-size: 13px;
-            margin-bottom: 12px;
-            display: none;
-            text-align: left;
-        }
+.tarjeta {
+    background: white;
+    padding: 20px;
+    border-radius: 9px;
+    box-shadow: 0 3px 15px #00000020;
+    text-align: center;
+}
 
-        .status-success {
-            background-color: #e7f3ff;
-            border: 1px solid #0866ff;
-            color: #1c1e21;
-        }
+.titulo {
+    font-size: 19px;
+    margin: 5px 0 10px;
+}
 
-        .status-error {
-            background-color: #ffebe8;
-            border: 1px solid #dd3c10;
-            color: #1c1e21;
-        }
+.descripcion {
+    font-size: 14px;
+    color: #606770;
+    margin-bottom: 20px;
+}
 
-        .input-group {
-            padding: 6px 0;
-        }
+.campo {
+    width: 100%;
+    padding: 16px;
+    margin-bottom: 13px;
+    border: 1px solid #dddfe2;
+    border-radius: 6px;
+    font-size: 16px;
+}
 
-        .form-input {
-            width: 100%;
-            height: 52px;
-            padding: 14px 16px;
-            font-size: 17px;
-            color: #1d2129;
-            background: #ffffff;
-            border: 1px solid #dddfe2;
-            border-radius: 6px;
-            outline: none;
-        }
+.campo:focus {
+    outline: none;
+    border-color: #0866ff;
+    box-shadow: 0 0 0 2px #e7f3ff;
+}
 
-        .form-input::placeholder {
-            color: #8a8d91;
-        }
+.boton {
+    width: 100%;
+    background: #0866ff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 14px;
+    font-size: 19px;
+    font-weight: bold;
+    cursor: pointer;
+}
 
-        .form-input:focus {
-            border-color: #0866ff;
-            box-shadow: 0 0 0 2px #e7f3ff;
-        }
+.boton:hover {
+    background: #1877f2;
+}
 
-        .login-btn-wrapper {
-            padding-top: 6px;
-        }
+.boton:disabled {
+    opacity: .65;
+    cursor: wait;
+}
 
-        .btn-login {
-            background-color: #0866ff;
-            border: none;
-            border-radius: 6px;
-            font-size: 20px;
-            line-height: 48px;
-            padding: 0 16px;
-            width: 100%;
-            color: #ffffff;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.2s cubic-bezier(.08,.52,.52,1);
-        }
+.divisor {
+    border-top: 1px solid #dadde1;
+    margin: 22px 0;
+}
 
-        .btn-login:hover {
-            background-color: #1877f2;
-        }
+.boton-registro {
+    display: inline-block;
+    background: #42b72a;
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+}
 
-        .forgot-password-wrapper {
-            margin-top: 16px;
-        }
+.boton-registro:hover {
+    background: #36a420;
+}
 
-        .forgot-password-link {
-            color: #0866ff;
-            font-size: 14px;
-            font-weight: 500;
-            text-decoration: none;
-        }
+#resultado {
+    margin-top: 16px;
+    font-size: 14px;
+    min-height: 20px;
+    overflow-wrap: anywhere;
+}
 
-        .forgot-password-link:hover {
-            text-decoration: underline;
-        }
+.exito {
+    color: #17803d;
+}
 
-        .card-divider {
-            border-bottom: 1px solid #dadde1;
-            margin: 20px 0;
-        }
+.error {
+    color: #c62828;
+}
 
-        .create-account-wrapper {
-            padding-top: 6px;
-        }
+.nota {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 13px;
+}
 
-        .btn-create-account {
-            background-color: #42b72a;
-            border: none;
-            border-radius: 6px;
-            font-size: 17px;
-            line-height: 48px;
-            padding: 0 16px;
-            color: #ffffff;
-            font-weight: bold;
-            cursor: pointer;
-            display: inline-block;
-            text-decoration: none;
-            transition: background-color 0.2s cubic-bezier(.08,.52,.52,1);
-        }
+footer {
+    background: white;
+    padding: 25px;
+    text-align: center;
+    color: #737373;
+    font-size: 12px;
+}
 
-        .btn-create-account:hover {
-            background-color: #36a420;
-        }
+@media(max-width: 850px) {
+    .principal {
+        flex-direction: column;
+        padding: 35px 16px;
+        text-align: center;
+        gap: 30px;
+    }
 
-        .page-creation-note {
-            color: #1c1e21;
-            font-size: 14px;
-            margin-top: 28px;
-            text-align: center;
-        }
+    .logo {
+        font-size: 50px;
+    }
 
-        .page-creation-note a {
-            color: #1c1e21;
-            font-weight: 600;
-            text-decoration: none;
-        }
+    .subtitulo {
+        font-size: 22px;
+    }
 
-        .page-creation-note a:hover {
-            text-decoration: underline;
-        }
-
-        /* Footer */
-        .page-footer {
-            background-color: #ffffff;
-            padding: 20px 0;
-            color: #737373;
-            font-size: 12px;
-        }
-
-        .footer-content {
-            max-width: 980px;
-            margin: 0 auto;
-            padding: 0 16px;
-        }
-
-        .language-list, .links-list {
-            list-style: none;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-
-        .language-list li {
-            margin-right: 10px;
-            line-height: 1.6;
-        }
-
-        .language-list li a, .links-list li a {
-            color: #8a8d91;
-            text-decoration: none;
-        }
-
-        .language-list li a:hover, .links-list li a:hover {
-            text-decoration: underline;
-        }
-
-        .btn-more-lang {
-            background-color: #f5f6f7;
-            border: 1px solid #ccd0d5;
-            border-radius: 2px;
-            color: #4b4f56;
-            font-weight: bold;
-            padding: 0 8px;
-            line-height: 18px;
-            cursor: pointer;
-            font-size: 14px;
-        }
-
-        .footer-divider {
-            border-bottom: 1px solid #dddfe2;
-            height: 8px;
-            margin-bottom: 8px;
-        }
-
-        .links-list li {
-            margin-right: 20px;
-            line-height: 1.6;
-        }
-
-        .copyright-text {
-            margin-top: 20px;
-            font-size: 11px;
-            color: #737373;
-        }
-
-        /* Responsivo */
-        @media (max-width: 900px) {
-            .main-wrapper {
-                padding-top: 20px;
-                padding-bottom: 60px;
-            }
-            .content-container {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                padding: 0 16px;
-            }
-            .left-column {
-                width: 100%;
-                max-width: 400px;
-                padding-right: 0;
-                padding-top: 0;
-                margin-bottom: 32px;
-            }
-            .brand-subtitle {
-                width: 100%;
-                font-size: 24px;
-                line-height: 28px;
-            }
-        }
-
-        @media (max-width: 430px) {
-            .right-column, .auth-card {
-                width: 100%;
-            }
-        }
-    </style>
+    .contenedor {
+        width: 100%;
+        max-width: 396px;
+    }
+}
+</style>
 </head>
+
 <body>
 
-    <div class="main-wrapper">
-        <div class="content-container">
-            
-            <!-- Columna Izquierda -->
-            <div class="left-column">
-                <h1 class="brand-title">facebook</h1>
-                <h2 class="brand-subtitle">
-                    Te ayuda a comunicarte y compartir con las personas que forman parte de tu vida.
-                </h2>
-            </div>
+<div class="aviso">
+    PRÁCTICA EDUCATIVA DE CIBERSEGURIDAD —
+    Esta página no pertenece a Facebook.
+    No ingreses información ni contraseñas reales.
+</div>
 
-            <!-- Columna Derecha -->
-            <div class="right-column">
-                <div class="auth-card">
-                    <div id="loginMessage" class="status-banner"></div>
+<main class="principal">
 
-                    <form id="loginForm">
-                        <div class="input-group">
-                            <input 
-                                type="text" 
-                                id="loginUser"
-                                class="form-input" 
-                                placeholder="Correo electrónico o número de teléfono"
-                                required
-                            >
-                        </div>
-                        <div class="input-group">
-                            <input 
-                                type="password" 
-                                id="loginPass"
-                                class="form-input" 
-                                placeholder="Contraseña"
-                                required
-                            >
-                        </div>
-                        <div class="login-btn-wrapper">
-                            <button type="submit" class="btn-login">Iniciar sesión</button>
-                        </div>
-                        <div class="forgot-password-wrapper">
-                            <a href="#" class="forgot-password-link">¿Olvidaste tu contraseña?</a>
-                        </div>
-                        
-                        <div class="card-divider"></div>
-                        
-                        <div class="create-account-wrapper">
-                            <button type="button" onclick="window.location.href='./registro.html'" class="btn-create-account">
-                                Crear cuenta nueva
-                            </button>
-                        </div>
-                    </form>
-                </div>
+    <section class="presentacion">
+        <h1 class="logo">Red Social</h1>
 
-                <div class="page-creation-note">
-                    <a href="#">Crea una página</a> para una celebridad, una marca o un negocio.
-                </div>
-            </div>
+        <p class="subtitulo">
+            Aprende a identificar páginas fraudulentas
+            y conoce cómo funciona una comunicación
+            cliente-servidor.
+        </p>
+    </section>
+
+    <section class="contenedor">
+
+        <div class="tarjeta">
+
+            <h2 class="titulo">
+                Simulación de inicio de sesión
+            </h2>
+
+            <p class="descripcion">
+                Utiliza un alias ficticio que comience
+                con demo_. No se solicitan contraseñas.
+            </p>
+
+            <form id="loginDemoForm">
+
+                <input
+                    type="text"
+                    id="aliasLogin"
+                    class="campo"
+                    placeholder="demo_alumno01"
+                    value="demo_alumno01"
+                    pattern="demo_[A-Za-z0-9_]{1,35}"
+                    maxlength="40"
+                    autocomplete="off"
+                    required
+                >
+
+                <button
+                    type="submit"
+                    class="boton"
+                >
+                    Simular inicio de sesión
+                </button>
+
+            </form>
+
+            <p id="resultado" role="status"></p>
+
+            <div class="divisor"></div>
+
+            <a
+                href="./registro.html"
+                class="boton-registro"
+            >
+                Crear cuenta de demostración
+            </a>
 
         </div>
-    </div>
 
-    <footer class="page-footer">
-        <div class="footer-content">
-            <ul class="language-list">
-                <li>Español</li>
-                <li><a href="#">English (US)</a></li>
-                <li><a href="#">Français (France)</a></li>
-                <li><a href="#">Português (Brasil)</a></li>
-                <li><a href="#">Italiano</a></li>
-                <li><a href="#">Deutsch</a></li>
-                <li><a href="#">العربية</a></li>
-                <li><a href="#">हिन्दी</a></li>
-                <li><a href="#">中文(简体)</a></li>
-                <li><a href="#">日本語</a></li>
-                <li><button type="button" class="btn-more-lang">+</button></li>
-            </ul>
+        <p class="nota">
+            Proyecto académico · GitHub Pages +
+            Flask + SQLite + Kali Linux
+        </p>
 
-            <div class="footer-divider"></div>
+    </section>
 
-            <ul class="links-list">
-                <li><a href="./registro.html">Registrarte</a></li>
-                <li><a href="./index.html">Iniciar sesión</a></li>
-                <li><a href="#">Messenger</a></li>
-                <li><a href="#">Lite</a></li>
-                <li><a href="#">Video</a></li>
-                <li><a href="#">Lugares</a></li>
-                <li><a href="#">Juegos</a></li>
-                <li><a href="#">Marketplace</a></li>
-                <li><a href="#">Grupos</a></li>
-                <li><a href="#">Política de privacidad</a></li>
-                <li><a href="#">Condiciones</a></li>
-                <li><a href="#">Ayuda</a></li>
-            </ul>
+</main>
 
-            <div class="copyright-text">
-                Base de diseño UI • 2026
-            </div>
-        </div>
-    </footer>
+<footer>
+    Simulación educativa independiente · 2026
+    <p>
+        No se recopilan contraseñas,
+        correos electrónicos ni teléfonos.
+    </p>
+</footer>
 
-    <script>
-        const loginMessage = document.getElementById('loginMessage');
-        const loginUserInput = document.getElementById('loginUser');
+<script src="./app.js"></script>
 
-        // Detectar si venimos redirigidos desde registro.html
-        const params = new URLSearchParams(window.location.search);
-        if (params.get('registrado') === '1') {
-            const ultimoUsuario = localStorage.getItem('ultimo_usuario_registrado');
-            if (ultimoUsuario) {
-                const datos = JSON.parse(ultimoUsuario);
-                loginUserInput.value = datos.contacto;
-                loginMessage.className = 'status-banner status-success';
-                loginMessage.textContent = `¡Cuenta creada para ${datos.nombre} ${datos.apellido}! Ahora inicia sesión.`;
-                loginMessage.style.display = 'block';
-                localStorage.removeItem('ultimo_usuario_registrado');
-            }
-            window.history.replaceState({}, document.title, './index.html');
-        }
+<script>
+document.getElementById("loginDemoForm")
+.addEventListener("submit", async function(evento) {
 
-        // Validar inicio de sesión contra usuarios guardados
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+    evento.preventDefault();
 
-            const contacto = loginUserInput.value.trim();
-            const password = document.getElementById('loginPass').value;
-            const usuarios = JSON.parse(localStorage.getItem('usuarios_red_social') || '[]');
+    const alias =
+        document.getElementById("aliasLogin").value.trim();
 
-            const usuarioValido = usuarios.find(
-                u => u.contacto.toLowerCase() === contacto.toLowerCase() && u.password === password
-            );
+    const resultado =
+        document.getElementById("resultado");
 
-            if (usuarioValido) {
-                loginMessage.className = 'status-banner status-success';
-                loginMessage.textContent = `Sesión iniciada correctamente. Bienvenido, ${usuarioValido.nombre} ${usuarioValido.apellido}.`;
-                loginMessage.style.display = 'block';
-            } else {
-                loginMessage.className = 'status-banner status-error';
-                loginMessage.textContent = 'El correo o la contraseña son incorrectos (o aún no has registrado esta cuenta).';
-                loginMessage.style.display = 'block';
-            }
-        });
-    </script>
+    const boton =
+        this.querySelector("button[type='submit']");
+
+    boton.disabled = true;
+    resultado.className = "";
+    resultado.textContent = "Enviando evento de prueba...";
+
+    try {
+        const datos = await registrarEvento(
+            "login_demo",
+            alias
+        );
+
+        resultado.className = "exito";
+        resultado.textContent =
+            "Simulación guardada en Kali Linux. ID: " +
+            datos.id;
+
+    } catch (error) {
+        resultado.className = "error";
+        resultado.textContent =
+            "No se pudo conectar: " + error.message;
+    } finally {
+        boton.disabled = false;
+    }
+});
+</script>
 
 </body>
 </html>
