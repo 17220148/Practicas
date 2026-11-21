@@ -1,6 +1,5 @@
 
-const API_BASE_URL =
-    "https://unto-connections-neural-wool.trycloudflare.com";
+const API_BASE_URL = "https://NUEVA-DIRECCION.trycloudflare.com";
 
 async function registrarEvento(tipo, alias) {
     const respuesta = await fetch(
