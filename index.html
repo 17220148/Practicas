@@ -3,8 +3,8 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Facebook</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Facebook - Simulación educativa</title>
 
 <style>
 * {
@@ -22,91 +22,88 @@ body {
 }
 
 .aviso {
+    padding: 13px 18px;
     background: #fff3cd;
     color: #664d03;
-    padding: 13px 20px;
     text-align: center;
-    font-size: 14px;
     border-bottom: 1px solid #ffda6a;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 .principal {
     flex: 1;
+    max-width: 1080px;
     width: 100%;
-    max-width: 1050px;
     margin: auto;
-    padding: 60px 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 45px;
+    gap: 50px;
+    padding: 50px 24px;
 }
 
-.presentacion {
+.izquierda {
     flex: 1;
-    max-width: 550px;
+    max-width: 540px;
 }
 
 .logo {
     color: #0866ff;
-    font-size: 62px;
+    font-size: 64px;
     font-weight: bold;
     letter-spacing: -2px;
     margin: 0 0 15px;
 }
 
 .subtitulo {
-    font-size: 27px;
-    line-height: 1.3;
-    margin: 0;
+    color: #606770;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.contenedor {
+.descripcion {
+    font-size: 27px;
+    line-height: 1.3;
+    margin-top: 18px;
+}
+
+.derecha {
     width: 396px;
     max-width: 100%;
 }
 
 .tarjeta {
     background: white;
-    padding: 20px;
-    border-radius: 9px;
-    box-shadow: 0 3px 15px #00000020;
+    padding: 20px 16px 24px;
+    border-radius: 8px;
+    box-shadow: 0 3px 15px #0002;
     text-align: center;
-}
-
-.titulo {
-    font-size: 19px;
-    margin: 5px 0 10px;
-}
-
-.descripcion {
-    font-size: 14px;
-    color: #606770;
-    margin-bottom: 20px;
 }
 
 .campo {
     width: 100%;
     padding: 16px;
-    margin-bottom: 13px;
     border: 1px solid #dddfe2;
     border-radius: 6px;
-    font-size: 16px;
+    font-size: 17px;
+    margin-bottom: 12px;
 }
 
 .campo:focus {
     outline: none;
     border-color: #0866ff;
-    box-shadow: 0 0 0 2px #e7f3ff;
 }
 
 .boton {
     width: 100%;
-    background: #0866ff;
-    color: white;
+    padding: 14px;
     border: none;
     border-radius: 6px;
-    padding: 14px;
+    background: #0866ff;
+    color: white;
     font-size: 19px;
     font-weight: bold;
     cursor: pointer;
@@ -117,76 +114,71 @@ body {
 }
 
 .boton:disabled {
-    opacity: .65;
+    opacity: .6;
     cursor: wait;
 }
 
 .divisor {
-    border-top: 1px solid #dadde1;
+    border-bottom: 1px solid #dadde1;
     margin: 22px 0;
 }
 
-.boton-registro {
+.crear {
     display: inline-block;
+    padding: 15px 20px;
     background: #42b72a;
     color: white;
     text-decoration: none;
-    padding: 15px 20px;
     border-radius: 6px;
-    font-size: 16px;
     font-weight: bold;
 }
 
-.boton-registro:hover {
+.crear:hover {
     background: #36a420;
 }
 
-#resultado {
-    margin-top: 16px;
-    font-size: 14px;
-    min-height: 20px;
+.ayuda {
+    color: #606770;
+    font-size: 13px;
+    margin: 0 0 16px;
+}
+
+.resultado {
+    margin-top: 15px;
     overflow-wrap: anywhere;
-}
-
-.exito {
-    color: #17803d;
-}
-
-.error {
-    color: #c62828;
+    font-size: 14px;
 }
 
 .nota {
-    margin-top: 25px;
     text-align: center;
     font-size: 13px;
+    margin-top: 24px;
 }
 
 footer {
     background: white;
     padding: 25px;
-    text-align: center;
     color: #737373;
+    text-align: center;
     font-size: 12px;
 }
 
 @media(max-width: 850px) {
     .principal {
         flex-direction: column;
-        padding: 35px 16px;
         text-align: center;
-        gap: 30px;
+        padding: 40px 15px;
     }
 
     .logo {
-        font-size: 50px;
+        font-size: 49px;
     }
 
-    .subtitulo {
-        font-size: 22px;
+    .descripcion {
+        font-size: 21px;
     }
 
-    .contenedor {
+    .derecha {
         width: 100%;
         max-width: 396px;
     }
@@ -197,73 +189,80 @@ footer {
 <body>
 
 <div class="aviso">
-   .
+    SIMULACIÓN ACADÉMICA DE FACEBOOK —
+    Sitio independiente, no oficial.
+    Utiliza únicamente datos ficticios.
 </div>
 
 <main class="principal">
 
-    <section class="presentacion">
+    <section class="izquierda">
         <h1 class="logo">Facebook</h1>
 
         <p class="subtitulo">
-            Aprende a identificar páginas fraudulentas
-            y conoce cómo funciona una comunicación
-            cliente-servidor.
+            Entorno de demostración
+        </p>
+
+        <p class="descripcion">
+            Conecta con tus compañeros y comparte
+            experiencias en esta práctica educativa.
         </p>
     </section>
 
-    <section class="contenedor">
+    <section class="derecha">
 
         <div class="tarjeta">
 
-            <h2 class="titulo">
-                Simulación de inicio de sesión
-            </h2>
+            <form id="loginForm">
 
-            <p class="descripcion">
-                Utiliza un alias ficticio que comience
-                con demo_. No se solicitan contraseñas.
-            </p>
-
-            <form id="loginDemoForm">
+                <p class="ayuda">
+                    Acceso con cuentas ficticias de laboratorio
+                </p>
 
                 <input
-                    type="text"
-                    id="aliasLogin"
                     class="campo"
-                    placeholder="demo_alumno01"
-                    value="demo_alumno01"
-                    pattern="demo_[A-Za-z0-9_]{1,35}"
-                    maxlength="40"
+                    type="email"
+                    id="correo"
+                    placeholder="demo_alumno@example.test"
+                    autocomplete="off"
+                    required
+                >
+
+                <input
+                    class="campo"
+                    type="password"
+                    id="password"
+                    placeholder="Contraseña de prueba"
                     autocomplete="off"
                     required
                 >
 
                 <button
-                    type="submit"
                     class="boton"
+                    type="submit"
                 >
-                    Simular inicio de sesión
+                    Iniciar sesión
                 </button>
 
+                <p
+                    id="resultado"
+                    class="resultado"
+                    role="status"
+                ></p>
+
+                <div class="divisor"></div>
+
+                <a href="registro.html" class="crear">
+                    Crear cuenta nueva
+                </a>
+
             </form>
-
-            <p id="resultado" role="status"></p>
-
-            <div class="divisor"></div>
-
-            <a
-                href="./registro.html"
-                class="boton-registro"
-            >
-                Crear cuenta de demostración
-            </a>
 
         </div>
 
         <p class="nota">
-            Proyecto académico · GitHub Pages +
-            Flask + SQLite + Kali Linux
+            Proyecto académico desarrollado con
+            GitHub Pages, Kali Linux, Flask y SQLite.
         </p>
 
     </section>
@@ -271,49 +270,50 @@ footer {
 </main>
 
 <footer>
-    Simulación educativa independiente · 2026
-    <p>
-        No se recopilan contraseñas,
-        correos electrónicos ni teléfonos.
-    </p>
+    <strong>Facebook — Simulación académica</strong>
+    <p>No afiliado al servicio oficial de Facebook.</p>
+    <p>No introduzcas correos ni contraseñas reales.</p>
 </footer>
 
 <script src="./app.js"></script>
 
 <script>
-document.getElementById("loginDemoForm")
-.addEventListener("submit", async function(evento) {
+document.getElementById("loginForm")
+.addEventListener("submit", async function(e) {
 
-    evento.preventDefault();
+    e.preventDefault();
 
-    const alias =
-        document.getElementById("aliasLogin").value.trim();
+    const correo =
+        document.getElementById("correo").value.trim();
+
+    const password =
+        document.getElementById("password").value;
 
     const resultado =
         document.getElementById("resultado");
 
     const boton =
-        this.querySelector("button[type='submit']");
+        this.querySelector("button[type=submit]");
 
     boton.disabled = true;
-    resultado.className = "";
-    resultado.textContent = "Enviando evento de prueba...";
+    resultado.style.color = "#606770";
+    resultado.textContent = "Comprobando cuenta de prueba...";
 
     try {
-        const datos = await registrarEvento(
-            "login_demo",
-            alias
-        );
+        const datos = await enviarAPI("/api/login", {
+            correo,
+            password
+        });
 
-        resultado.className = "exito";
+        resultado.style.color = "green";
+
         resultado.textContent =
-            "Simulación guardada en Kali Linux. ID: " +
-            datos.id;
+            "Bienvenido, " +
+            datos.nombre + " " + datos.apellido;
 
     } catch (error) {
-        resultado.className = "error";
-        resultado.textContent =
-            "No se pudo conectar: " + error.message;
+        resultado.style.color = "red";
+        resultado.textContent = error.message;
     } finally {
         boton.disabled = false;
     }
